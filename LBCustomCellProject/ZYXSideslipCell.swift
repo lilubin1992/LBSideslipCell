@@ -105,13 +105,13 @@ class ZYXSideslipCell: UITableViewCell {
         }
     }
     
-    var indexPath : IndexPath? {
+   private var indexPath : IndexPath? {
         get {
             return tableView.indexPath(for: self)
         }
     }
     
-    var actions : [ZYXSideslipCellAction] = [ZYXSideslipCellAction]() {
+    private var actions : [ZYXSideslipCellAction] = [ZYXSideslipCellAction]() {
         didSet {
             
             self.insertSubview(btnContainerView, belowSubview: contentView)
@@ -136,7 +136,8 @@ class ZYXSideslipCell: UITableViewCell {
         }
     }
     
-    func actionBtnDidClicked(_ btn : UIButton) {
+@objc
+    private func actionBtnDidClicked(_ btn : UIButton) {
         delegate?.sideslipCell(self, cellRowAt: self.indexPath!, didSelectedAt: btn.tag - 100)
         if btn.tag - 100 < actions.count {
             let action = actions[btn.tag - 100]
@@ -147,53 +148,41 @@ class ZYXSideslipCell: UITableViewCell {
         }
     }
     
-    var panGesture : UIPanGestureRecognizer?
-    
-//    var tableViewPan : UIPanGestureRecognizer?
+    private var panGesture : UIPanGestureRecognizer?
     
     //侧滑状态 true: 开启状态   false:关闭状态
-    var sideslip : Bool = false
+    private var sideslip : Bool = false
     
-    lazy var tableView : UITableView = {[unowned self] in
+    private lazy var tableView : UITableView = {[unowned self] in
         var view = self.superview
         while (view != nil) && view?.isKind(of: UITableView.self) == false {
             view = view?.superview
         }
-//        self.tableViewPan = UIPanGestureRecognizer.init(target: self, action: #selector(tableViewPan(_:)))
-//        self.tableViewPan?.delegate = self
-//        view?.addGestureRecognizer(self.tableViewPan!)
         return view as! UITableView
-        }()
+    }()
     
-    lazy var btnContainerView : UIView = {
+    private lazy var btnContainerView : UIView = {
         let view : UIView = UIView.init(frame: CGRect.init(x: kScreenWidth - 140, y: 0, width: 140, height: self.frame.size.height))
         view.backgroundColor = .orange
         return view
     }()
-    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         print("---init reuseIdentifier---")
         contentView.backgroundColor = .white
         self.addPanGesture()
-//        addLabel()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-//        fatalError("init(coder:) has not been implemented")
-//        self.addPanGesture()
     }
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         print("---sidesilpCell awake fromNib---")
         self.addPanGesture()
-        //        self.insertSubview(btnContainerView, belowSubview: contentView)
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -229,14 +218,7 @@ class ZYXSideslipCell: UITableViewCell {
         }
     }
     
-    func addLabel() {
-        let label : UILabel = UILabel()
-        label.frame = self.bounds
-        label.text = "标题"
-        contentView.addSubview(label)
-    }
-    
-    func addPanGesture() {
+    private func addPanGesture() {
         print("---ADD PANGESTURE---")
         contentView.isUserInteractionEnabled = true
         panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(contentViewPan(_:)))
@@ -244,7 +226,8 @@ class ZYXSideslipCell: UITableViewCell {
         contentView.addGestureRecognizer(panGesture!)
     }
     
-    func contentViewPan(_ pan : UIPanGestureRecognizer) {
+@objc
+    private func contentViewPan(_ pan : UIPanGestureRecognizer) {
         
         let point : CGPoint = pan.translation(in: pan.view)
         print("---contentViewPan point:(\(point.x), \(point.y))--")
@@ -281,25 +264,10 @@ class ZYXSideslipCell: UITableViewCell {
         }
     }
     
-    /*
-    func tableViewPan(_ pan : UIPanGestureRecognizer) {
-        if !tableView.isScrollEnabled && pan.state == .began {
-            self.hiddenAllSideslip()
-        }
-    }
-     */
-    
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         
         //处理添加手势后 与 tableView 滑动矛盾的问题
         if gestureRecognizer == panGesture! {
-            
-            /*
-            if !self.tableView.isScrollEnabled {
-                self.hiddenAllSideslip()
-                return false
-            }
-            */
             
             let gesture : UIPanGestureRecognizer = gestureRecognizer as! UIPanGestureRecognizer
             let translation : CGPoint = gesture.translation(in: gesture.view)
@@ -332,21 +300,13 @@ class ZYXSideslipCell: UITableViewCell {
                 return false
             }
             return shouldBegin
-            
         }
-        /*
-         else if gestureRecognizer == tableViewPan! {
-         if tableView.isScrollEnabled {
-         return false
-         }
-         }
-         */
         return true
     }
     
-}
-
-extension ZYXSideslipCell {
+    func hiddenAllSideslip() {
+        tableView.hiddenAllSideslip()
+    }
     
     func setContentViewX(_ x : CGFloat) {
         var frame : CGRect = self.contentView.frame
@@ -364,11 +324,6 @@ extension ZYXSideslipCell {
         }
     }
     
-    
-    func hiddenAllSideslip() {
-        tableView.hiddenAllSideslip()
-    }
-    
     func hiddenSideslip() {
         if contentView.frame.origin.x == 0 {
             return
@@ -378,8 +333,6 @@ extension ZYXSideslipCell {
         UIView.animate(withDuration: 0.2, animations: {
             self.setContentViewX(0)
         }) { (finished) in
-            //            self.btnContainView?.removeFromSuperview()
-            //            self.btnContainView = nil
             self.state = .normal
         }
     }
@@ -392,6 +345,7 @@ extension ZYXSideslipCell {
             self.state = .open
         }
     }
+
     
 }
 
