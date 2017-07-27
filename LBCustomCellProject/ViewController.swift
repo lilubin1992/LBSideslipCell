@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         title = "非继承关系的CELL"
         view.addSubview(tableView)
+        print("Mac Pro Test")
     }
     
     override func didReceiveMemoryWarning() {
