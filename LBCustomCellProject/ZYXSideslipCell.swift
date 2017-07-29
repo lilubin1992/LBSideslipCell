@@ -285,6 +285,9 @@ class ZYXSideslipCell: UITableViewCell {
                 }
             }
             //询问是否需要侧滑
+            if delegate == nil {
+                return false
+            }
             shouldBegin = (delegate?.sideslipCell(self, canSideslipRowAt: self.indexPath!))! || sideslip
             
             if shouldBegin {

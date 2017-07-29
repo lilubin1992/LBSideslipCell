@@ -22,7 +22,6 @@ class ZYXInheritViewController: UIViewController {
         
         let cellNib = UINib.init(nibName: "ZYXSideslipSonCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: kCellIdentifier)
-//        tableView.register(ZYXSideslipSonCell.self, forCellReuseIdentifier: kCellIdentifier)
         
         return tableView
         }()

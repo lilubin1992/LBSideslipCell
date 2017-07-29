@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F47AD711F2A50DB0080694C /* ZYXSystemCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F47AD701F2A50DB0080694C /* ZYXSystemCellViewController.swift */; };
 		AEC2923D1F21B68D003CD619 /* ZYXActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2923C1F21B68D003CD619 /* ZYXActionButton.swift */; };
 		AEC2923F1F21E674003CD619 /* ZYXSideslipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC2923E1F21E674003CD619 /* ZYXSideslipCell.swift */; };
 		AEC292411F21ECDC003CD619 /* ZYXInheritViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC292401F21ECDC003CD619 /* ZYXInheritViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F47AD701F2A50DB0080694C /* ZYXSystemCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYXSystemCellViewController.swift; sourceTree = "<group>"; };
 		AEC2923C1F21B68D003CD619 /* ZYXActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYXActionButton.swift; sourceTree = "<group>"; };
 		AEC2923E1F21E674003CD619 /* ZYXSideslipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYXSideslipCell.swift; sourceTree = "<group>"; };
 		AEC292401F21ECDC003CD619 /* ZYXInheritViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYXInheritViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				AEFAD2211F20BD170090D455 /* AppDelegate.swift */,
 				AEFAD2231F20BD170090D455 /* ViewController.swift */,
 				AEC292401F21ECDC003CD619 /* ZYXInheritViewController.swift */,
+				6F47AD701F2A50DB0080694C /* ZYXSystemCellViewController.swift */,
 				AEFAD24F1F20C30A0090D455 /* ZYXSignUpCell.swift */,
 				AEFAD2501F20C30A0090D455 /* ZYXSignUpCell.xib */,
 				AEC2923E1F21E674003CD619 /* ZYXSideslipCell.swift */,
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEC292411F21ECDC003CD619 /* ZYXInheritViewController.swift in Sources */,
+				6F47AD711F2A50DB0080694C /* ZYXSystemCellViewController.swift in Sources */,
 				AEFAD2511F20C30A0090D455 /* ZYXSignUpCell.swift in Sources */,
 				AEC2923D1F21B68D003CD619 /* ZYXActionButton.swift in Sources */,
 				AEC292481F21FBDF003CD619 /* ZYXSideslipSonCell.swift in Sources */,
