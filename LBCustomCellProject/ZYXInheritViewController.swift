@@ -28,7 +28,7 @@ class ZYXInheritViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "继承关系的CELL"
+        title = "自定义的CELL"
         view.addSubview(tableView)
     }
     

@@ -38,6 +38,7 @@
                     <connections>
                         <segue destination="yJx-Zc-WRa" kind="relationship" relationship="viewControllers" id="43q-g3-lcg"/>
                         <segue destination="Bq6-YB-toy" kind="relationship" relationship="viewControllers" id="QeD-uI-was"/>
+                        <segue destination="kFH-Bs-yHN" kind="relationship" relationship="viewControllers" id="Sm7-ES-Mma"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5IU-n4-nN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,6 +99,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTJ-QI-sNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-652" y="551"/>
+        </scene>
+        <!--非继承-->
+        <scene sceneID="4bF-b0-F58">
+            <objects>
+                <navigationController id="kFH-Bs-yHN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="非继承" id="AaT-BL-7IH"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vlz-dG-fRH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UIG-jG-lSA" kind="relationship" relationship="rootViewController" id="UT5-Wg-fZs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fbd-DF-oU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1588" y="1234"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4vE-MA-pzr">
+            <objects>
+                <viewController id="UIG-jG-lSA" customClass="ViewController" customModule="LBCustomCellProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sXR-V8-9G6"/>
+                        <viewControllerLayoutGuide type="bottom" id="fU9-fj-DyC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zum-8S-cyq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RRD-EQ-HDZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lQq-QH-KiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-687" y="1234"/>
         </scene>
     </scenes>
 </document>
